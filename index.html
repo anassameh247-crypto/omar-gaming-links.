@@ -49,8 +49,7 @@ conic-gradient(from 20deg,#1a1405,#4a3810 8%,#1a1405 16%,#6d5316 25%,#1a1405 34%
 }
 .disc::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,rgba(246,227,161,.09) 0 1px,transparent 1px 5px);}
 .disc::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 3px rgba(212,167,58,.6)}
-.disc .label{position:absolute;inset:31%;border-radius:50%;overflow:hidden;border:3px solid var(--g2);background:#000;z-index:1}
-.disc .label img{width:100%;height:100%;object-fit:cover;display:block}
+.disc .label{position:absolute;inset:31%;border-radius:50%;overflow:hidden;border:3px solid var(--g2);background:linear-gradient(135deg,var(--g1),var(--g2) 55%,var(--g3));z-index:1}
 .disc .hole{position:absolute;inset:47.5%;border-radius:50%;background:var(--bg);z-index:2;border:2px solid var(--g2)}
 #intro h2{font-size:28px;font-weight:900;line-height:1.5;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));-webkit-background-clip:text;background-clip:text;color:transparent}
 #intro p{color:var(--muted);font-size:16px;max-width:320px;line-height:1.8}
@@ -63,7 +62,7 @@ conic-gradient(from 20deg,#1a1405,#4a3810 8%,#1a1405 16%,#6d5316 25%,#1a1405 34%
 
 <!-- شاشة الترحيب -->
 <div id="intro" role="dialog" aria-label="ترحيب">
-  <div class="disc"><div class="label"><img id="discImg" alt=""></div><div class="hole"></div></div>
+  <div class="disc"><div class="label"></div><div class="hole"></div></div>
   <h2>أهلاً بك في مجمع الروابط</h2>
   <p>متنساش تعمل فولو للصفحة وتبعت الرابط لأصحابك</p>
   <button type="button" id="enter">ادخل</button>
@@ -117,9 +116,6 @@ Object.keys(LINKS).forEach(function(id){
   var a = document.getElementById(id);
   if (a && LINKS[id]) { a.href = LINKS[id]; a.classList.remove("soon"); var s = a.querySelector("small"); if (s && s.textContent === "SOON") s.textContent = id.toUpperCase(); }
 });
-
-/* نفس صورة البروفايل على الاسطوانة */
-document.getElementById("discImg").src = document.getElementById("mainImg").src;
 
 /* شاشة الترحيب: بتتقفل بس لما الزائر يدوس على زرار "ادخل" */
 var intro = document.getElementById("intro");
